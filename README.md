@@ -6,7 +6,7 @@ Backend assignment project for a role-based finance dashboard system.
 - Repository: https://github.com/Hverma1206/zorvyn_assignment
 - Default branch: master
 - Working branch used during development: master
-- Deployed API: Not deployed (local development setup)
+- Deployed API: http://13.232.252.38/api
 
 ## Assignment Coverage Summary
 
@@ -127,7 +127,7 @@ Authorization: Bearer <token>
 
 ## API Endpoints
 Base URL: http://localhost:8000/api
-Deployed URL: 
+Deployed URL: http://13.232.252.38/api
 
 ### Auth
 - POST /auth/register
@@ -218,4 +218,17 @@ npm start
 4. Verify health endpoint
 ```bash
 curl http://localhost:8000/
+```
+
+## Deployment
+- Hosting: AWS EC2
+- Process manager: PM2
+- Reverse proxy/web server: Nginx
+- Public IP: http://13.232.252.38
+- Live API base URL: http://13.232.252.38/api
+
+Quick production checks:
+```bash
+curl http://13.232.252.38/
+curl http://13.232.252.38/api/dashboard
 ```
