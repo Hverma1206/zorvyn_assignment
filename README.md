@@ -9,7 +9,6 @@ Backend assignment project for a role-based finance dashboard system.
 - Deployed API: Not deployed (local development setup)
 
 ## Assignment Coverage Summary
-This implementation is designed to directly match the assignment requirements:
 
 1. User and role management
 - User creation and user listing (admin only)
@@ -128,6 +127,7 @@ Authorization: Bearer <token>
 
 ## API Endpoints
 Base URL: http://localhost:8000/api
+Deployed URL: 
 
 ### Auth
 - POST /auth/register
@@ -219,41 +219,3 @@ npm start
 ```bash
 curl http://localhost:8000/
 ```
-
-## Quick Manual API Test (curl)
-```bash
-# Register viewer
-curl -X POST "http://localhost:8000/api/auth/register" \
-  -H "Content-Type: application/json" \
-  -d '{"username":"viewer1","email":"viewer1@example.com","password":"password123"}'
-
-# Login (example admin account)
-curl -X POST "http://localhost:8000/api/auth/login" \
-  -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"admin123"}'
-```
-
-## Assumptions and Tradeoffs
-- This project uses MongoDB for persistence and assumes DB availability via MONGO_URI.
-- Register endpoint intentionally defaults role to viewer for safety.
-- DELETE /records performs soft delete instead of physical deletion.
-- API docs are maintained in this README rather than Swagger/OpenAPI in this version.
-
-## Optional Enhancements Status
-Implemented:
-- JWT authentication
-- Pagination
-- Search support
-- Soft delete
-
-Not implemented in this version:
-- Rate limiting middleware wiring
-- Automated unit/integration tests
-- Deployment URL
-
-## Evaluation Readiness Notes
-This submission emphasizes:
-- Clear separation of concerns (routes, controllers, services, models)
-- Role-based access control with strict route guards
-- Input validation and centralized error handling
-- Aggregation-heavy analytics APIs for dashboard use
